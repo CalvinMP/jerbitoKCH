@@ -1,1 +1,87 @@
 (library (name m05))
+
+1) Résultat de match échec:
+
+type match_result = Victory | Draw | Defeat;;
+
+let get_result v = 
+match v with 
+| Victory -> 1.
+| Draw -> 0.5
+| Defeat -> 0.;;
+
+
+
+2) Type semaine:
+
+type semaine = 
+Lundi |
+Mardi |
+Mercredi |
+Jeudi |
+Vendredi |
+Samedi |
+Dimanche;;
+
+fonction week-end:
+let is_weekend d =
+ match d with 
+| Samedi | Dimanche -> true
+| _ -> false;;
+
+
+
+3) type etat: 
+type etat = Metro | Boulot | Dodo;;
+
+4) machine à état:
+let machine_etat e = 
+match e with 
+| Metro -> Boulot
+| Boulot -> Dodo
+| Dodo -> Metro;;
+
+5) Oui la fonction marche toujours car elle a enfermée les valeurs de la précédente machine à état.
+
+
+6) cartes à jouer:
+type couleur_carte = Pique | Trefle | Carreau | Coeur;;
+
+type valeur_carte = As | Roi | Reine | Valet | Dix | Neuf | Huit | Sept;;
+
+type carte = {valeur: valeur_carte; couleur: couleur_carte};;
+
+7) est_rouge
+let est_rouge carte = 
+match carte.couleur with 
+| Coeur | Carreau -> true
+| _ -> false;;
+
+is_head:
+let is_head carte = 
+match carte.valeur with 
+| Roi | Reine | Valet -> true
+| _ -> false;;
+
+
+8) score_normal
+let score_normal carte = 
+match carte.valeur with 
+| As -> 11
+| Dix -> 10
+| Roi -> 4
+| Reine -> 3
+| Valet -> 2
+| _ -> 0;;
+
+score_atout:
+let score_atout carte = 
+match carte.valeur with 
+| As -> 11
+| Dix -> 10
+| Roi -> 4
+| Reine -> 3
+| Valet -> 20
+| Neuf -> 14
+| _ -> 0;;
+
